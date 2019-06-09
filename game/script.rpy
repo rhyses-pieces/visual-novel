@@ -4,22 +4,8 @@
 # name of the character.
 
 define narrator = Character(None,ctc="ctc_default",ctc_pause="ctc_default")
-define than = Character("Thancred",ctc="ctc_default",ctc_pause="ctc_default")
-define min = Character("Minfilia",ctc="ctc_default",ctc_pause="ctc_default")
-define uri = Character("Urianger",ctc="ctc_default",ctc_pause="ctc_default")
-define ysh = Character("Y'shtola",ctc="ctc_default",ctc_pause="ctc_default")
-define yda = Character("Yda",ctc="ctc_default",ctc_pause="ctc_default")
-define lymo = Character("Papalymo",ctc="ctc_default",ctc_pause="ctc_default")
-define soix = Character("Louisoix",ctc="ctc_default",ctc_pause="ctc_default")
 
 define nvl_narrator = NVLCharacter(None,kind=nvl,what_style="nvl_thought",ctc="ctc_default",ctc_pause="ctc_default")
-define nvlThan = Character("Thancred",kind=nvl,ctc="ctc_default",ctc_pause="ctc_default")
-define nvlMin = Character("Minfilia",kind=nvl,ctc="ctc_default",ctc_pause="ctc_default")
-define nvlUri = Character("Urianger",kind=nvl,ctc="ctc_default",ctc_pause="ctc_default")
-define nvlYsh = Character("Y'shtola",kind=nvl,ctc="ctc_default",ctc_pause="ctc_default")
-define nvlYda = Character("Yda",kind=nvl,ctc="ctc_default",ctc_pause="ctc_default")
-define nvlLymo = Character("Papalymo",kind=nvl,ctc="ctc_default",ctc_pause="ctc_default")
-define nvlSoix = Character("Louisoix",kind=nvl,ctc="ctc_default",ctc_pause="ctc_default")
 
 image ref = "gui/mm_background.jpg"
 image cg1 = "images/cg1.jpg"
@@ -40,17 +26,17 @@ label start:
     window show
     "Hello, world."
 
-    min "You've created a new Ren'Py game."
+    narrator "You've created a new Ren'Py game."
 
     scene cg1:
         size (1920, 1080)
 
-    min "Once you add a story, pictures, and music, you can release it to the world!"
+    narrator "Once you add a story, pictures, and music, you can release it to the world!"
 
     scene cg2:
         size (1920, 1080)
 
-    min "But, soft! what light through yonder window breaks? It is the east, and
+    narrator "But, soft! what light through yonder window breaks? It is the east, and
        Juliet is the sun. O true apothecary, Thy drugs are quick. Thus with a kiss
        I die."
 
@@ -74,9 +60,9 @@ label start:
         "I want midnight ramen please":
             pass
 
-    min "You thought that choice meant something... but the joke's on you!"
+    narrator "You thought that choice meant something... but the joke's on you!"
 
-    min "It's completely meaningless! Ahahahahahaha!"
+    narrator "It's completely meaningless! Ahahahahahaha!"
 
     "Four score and seven years ago our fathers brought forth on this continent,
      a new nation, conceived in Liberty, and dedicated to the proposition that
@@ -98,7 +84,7 @@ label start:
      above our poor power to add or detract. The world will little note, nor long
      remember what we say here, but it can never forget what they did here."
 
-    min "Ooh cool beans."
+    nvl_narrator "Ooh cool beans."
 
     "It is for us the living, rather, to be dedicated here to the unfinished work
      which they who fought here have thus far so nobly advanced."
@@ -116,13 +102,13 @@ label start:
     scene ref:
         size (1920, 1080)
 
-    nvlMin "But really, these kinds of epic speeches should be happening in NVL." with dissolve
+    nvl_narrator "But really, these kinds of epic speeches should be happening in NVL." with dissolve
 
     nvl_narrator "Four score and seven years ago our fathers brought forth on this continent,
     a new nation, conceived in Liberty, and dedicated to the proposition that
     all men are created equal."
 
-    nvlMin "I like this speech. It was short."
+    nvl_narrator "I like this speech. It was short."
 
     nvl_narrator "Now we are engaged in a great civil war, testing whether that nation, or any
     nation so conceived and so dedicated, can long endure."
@@ -155,7 +141,7 @@ label start:
     nvl_narrator "-- and that government of the people, by the people, for the people, shall not
      perish from the earth."
 
-    min "There, that was more fitting. Don't you think?" with dissolve
+    narrator "There, that was more fitting. Don't you think?" with dissolve
 
     # This ends the game.
 
