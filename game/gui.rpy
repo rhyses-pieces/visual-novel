@@ -15,17 +15,17 @@ init python:
 #############
 
 # Name of the game, which shows up in your window, etc.
-define config.name = _("Fade")
+define config.name = _("FFXIV Dating Sim")
 
 ## The version of the game.
 define config.version = "1.0"
 
 ## The name of the developer.
-define gui.developer_name = "Moon Tea Creative"
+define gui.developer_name = "FFXIV fans"
 
 ## Name of your build. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
-define build.name = "Fade"
+define build.name = "ffxivdatingsim"
 
 ## Save directory. This controls where Ren'Py will place the save files.
 ## The save files will be placed in:
@@ -37,11 +37,11 @@ define build.name = "Fade"
 ## Change this to the name of your game, with some random numbers for good
 ## measure (in case someone else makes a game of the same name).
 
-define config.save_directory = "Fade-1511469406"
+define config.save_directory = "ffxivdatingsim-1511469406"
 
 # Your website. This will be clickable via the "web" icon on the main menu
 # in the lower corner.
-define gui.developer_site = "http://lunachaili.com"
+define gui.developer_site = "http://twitter.com"
 
 ###########
 # Visuals #
