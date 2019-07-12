@@ -1,6 +1,6 @@
 ﻿init -1600 python hide:
     renpy.music.alias_channel(1, "system")
-    
+
 define config.main_menu = main_menu
 
 ################################################################################
@@ -13,13 +13,36 @@ init python:
     # Creates a layer where ATL can run regardless of skipping.
     # Important for Skip Mode.
     config.top_layers = ['top_layer']
-    
+
     # Custom layers.
     config.layers = [ 'master',
                       'transient',
                       'lens',
                       'screens',
                       'overlay' ]
+
+default MCname = "You"
+
+default MCgender = "nonbinary"
+
+default MCpronouns = "they/them"
+default theyare = "they are"
+default they = "they"
+default them = "them"
+default their = "their"
+default themselves = "themself"
+default plural = True
+
+default tempname = MCname
+default tempsub = they
+default tempob = them
+default tempposs = their
+default tempref = themselves
+default tempplu = plural
+
+default pronquestion = False
+default selpron = False
+default selgen = False
 
 ## Sounds and music ############################################################
 
@@ -32,7 +55,7 @@ define config.has_music = True
 ## Register a system channel with a separate mixer.
 init python:
     renpy.music.register_channel("system",mixer="systemMixer",loop=False)
-    
+
 ## Game Settings ###############################################################
 
 ## Old - kept for backwards compatibility.
@@ -110,11 +133,11 @@ default _game_menu_screen = "pause_menu"
 init:
     ## Auto Forward
     $ config.keymap['toggle_afm'].append('a')
-    
+
     ## Screenshot
     $ config.keymap['screenshot'].remove('s')
     $ config.keymap['screenshot'].append('S')
-    
+
     ## Fast skip
     $ config.keymap['toggle_fullscreen'].remove('f')
     $ config.keymap['fast_skip'].append('f')
@@ -124,17 +147,17 @@ init:
 ################################################################################
 
 ## Special image defs ##########################################################
-    
+
 image ctc_default:
     "gui/adv_ctc.png"
-    xoffset 12 yoffset 20 
+    xoffset 12 yoffset 20
     alpha 0.0 anchor (0.5,0.5) size (15,15)
     parallel:
         linear 0.4 alpha 1.0
         pause 0.3
         linear 0.4 alpha 0.0
         repeat
-        
+
 ## Special screens #############################################################
 
 screen exit_button(clickaction=Return(),doTrans=True):
@@ -145,7 +168,7 @@ screen exit_button(clickaction=Return(),doTrans=True):
         hovered Play("system",guisfx_button_hover)
         action [Play("system",guisfx_button_click),
                 clickaction]
-        
+
         if doTrans:
             at gui_buttonfade_enter(gui_exit_parameters)
         else:

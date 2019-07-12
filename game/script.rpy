@@ -143,6 +143,45 @@ label start:
 
     narrator "There, that was more fitting. Don't you think?" with dissolve
 
+    e "Oh yeah, before I say anything: what are your pronouns?"
+        label pronques:
+        menu:
+            "What are your pronouns?"
+            "He/Him":
+                $ dpronouns("he")
+                jump pronouns_done
+            "She/Her":
+                $ dpronouns("she")
+                jump pronouns_done
+            "They/Them":
+                $ dpronouns("they")
+                jump pronouns_done
+            "Other Pronouns":
+                $ pronquestion = True
+                show screen bsub
+                show screen bob
+                show screen bposs
+                show screen bref
+                show screen cpron
+                jump pronouns_done
+        label pronouns_done:
+        $ selpron = True
+        e "Great! And what's your gender, again?"
+        menu:
+            "What is your gender identity?"
+            "Male":
+                $ dgender("guy")
+                jump gender_done
+            "Female":
+                $ dgender("gal")
+                jump gender_done
+            "Nonbinary":
+                $ dgender("nb")
+                jump gender_done
+        label gender_done:
+        $ selgen = True
+        e "So your pronouns are [MCpronouns] and you're [MCgender], right? Alright, let's go!"
+
     # This ends the game.
 
     return
