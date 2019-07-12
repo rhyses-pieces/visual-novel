@@ -495,7 +495,6 @@ screen input(prompt):
 
         vbox:
             xpos gui.dialogue_xpos
-            xanchor gui.dialogue_xalign
             ypos gui.dialogue_ypos
             xsize gui.dialogue_width
 

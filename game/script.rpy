@@ -1,29 +1,69 @@
-# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define narrator = Character(None,ctc="ctc_default",ctc_pause="ctc_default")
-
-define nvl_narrator = NVLCharacter(None,kind=nvl,what_style="nvl_thought",ctc="ctc_default",ctc_pause="ctc_default")
-
-image ref = "gui/mm_background.jpg"
-image cg1 = "images/cg1.jpg"
-image cg2 = "images/cg2.jpg"
-image cg3 = "images/cg3.jpg"
-
-
-# The game starts here.
-
+# The game starts here
 label start:
 
     # Stop main menu music.
     stop music
-
     scene ref:
         size (1920, 1080)
-
     window show
+    #
+    
+    "Hello, what's your name?"
+    
+    ########################
+    # Character Name
+    label naming_character:
+    
+    $ first_name = renpy.input("{i}What is my first name?{/i} \n(If no name given, the default is Meteor.)")
+    $ first_name = first_name.strip()
+    if first_name == "":
+        $ first_name = "Meteor"
+    
+    $ last_name = renpy.input("{i}What is my last name?{/i} \n(If no name given, the default is Survivor.)")
+    $ last_name = last_name.strip()
+    if last_name == "":
+        $ last_name = "Survivor"
+    
+    "So your name is [first_name] [last_name]?"
+    
+    menu:
+        extend " "
+        "Yes.":
+            pass
+        "No.":
+            jump naming_character   
+    #######################
+    
+    #######################
+    # Pronoun Selection
+    label pronoun_selection:
+    
+    "Please select the pronouns for [first_name] [last_name]."
+    menu:
+        extend " "
+        "He/Him":
+            pass
+        "She/Her":
+            $ he, him, his = "she", "her", "her"
+            $ He, Him, His = "She", "Her", "Her"
+        "They/Them":
+            $ he, him, his = "they", "them", "their"
+            $ He, Him, His = "They", "Them", "Their"
+            $ is_, was, s, es = "are", "were", "", ""
+            $ ies, has_ = "y", "have"
+    
+    "Did you hear what [first_name] [last_name] said? [He] told me [he] went to school and saw someone lighting the bleachers on fire. But [he] [was] blamed for it because [he] [was] at the wrong place in the wrong time. [He] [has_] a big staff though, so what if [he] really [was] involved?"
+    
+    
+    "Is this pronoun choice correct?"
+    menu:
+        extend " "
+        "Yes.":
+            pass
+        "No.":
+            jump pronoun_selection
+    #######################
+    
     "Hello, world."
 
     narrator "You've created a new Ren'Py game."
