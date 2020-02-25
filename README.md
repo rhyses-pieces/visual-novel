@@ -1,4 +1,4 @@
-# Dating Sim (name wip)
+# Name WIP
 
 This project is a visual novel created with Ren'py. Currently it is under development.
 
